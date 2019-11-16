@@ -101,7 +101,7 @@ def LoadlUCF101_OnsetAligned(DataDir,MinFrames=50,FrameStride=1,MinTrainingPerCl
           ret,frame=vid.read()  
           if ret==True:
               if (f%FrameStride==0):
-                  X_train[i,int(f/FrameStride),:,:,:]=cv2.pyrDown(frame)[60-(Height/2):60+(Height/2),80-(Width/2):80+(Width/2),:]
+                  X_train[i,int(f/FrameStride),:,:,:]=cv2.pyrDown(frame)[60-int(Height/2):60+int(Height/2),80-int(Width/2):80+int(Width/2),:]
           else:
               break
       vid.release()
@@ -120,7 +120,7 @@ def LoadlUCF101_OnsetAligned(DataDir,MinFrames=50,FrameStride=1,MinTrainingPerCl
           ret,frame=vid.read()  
           if ret==True:
               if (f%FrameStride==0):
-                  X_val[i,int(f/FrameStride),:,:,:]=cv2.pyrDown(frame)[60-(Height/2):60+(Height/2),80-(Width/2):80+(Width/2),:]
+                  X_val[i,int(f/FrameStride),:,:,:]=cv2.pyrDown(frame)[60-int(Height/2):60+int(Height/2),80-int(Width/2):80+int(Width/2),:]
           else:
               break
       vid.release()
